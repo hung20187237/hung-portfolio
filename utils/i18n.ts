@@ -118,8 +118,8 @@ export const dictionary = {
                 {
                     title: "Gia Dụng Kichin",
                     meta: "E-Commerce Website",
-                    desc: "An e-commerce platform for home appliances. Developed a robust online store with a seamless browsing and checkout experience.",
-                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    desc: "An e-commerce platform specializing in authentic Japanese knives (KAI, Global, etc.) and premium kitchenware. Features a seamless shopping experience and product filtering.",
+                    tech: ["ReactJS", "Next.JS", "Bootstrap"],
                     link: "https://giadungkichin.com/",
                     image: "/assets/projects/gia_dung_kichin.png"
                 },
@@ -127,15 +127,15 @@ export const dictionary = {
                     title: "Tiệm Bút Signature",
                     meta: "Boutique Pen Store",
                     desc: "Elegant e-commerce storefront for a signature pen brand. Focused on high-quality visuals, responsive design, and smooth user journey.",
-                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    tech: ["ReactJS", "Vite", "TailwindCSS"],
                     link: "https://www.tiembutsignature.com/",
                     image: "/assets/projects/tiem_but_signature.png"
                 },
                 {
                     title: "NCS Group",
-                    meta: "Corporate Website",
-                    desc: "Official website for NCS Group. Designed a professional and accessible layout presenting their history, services, and corporate identity.",
-                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    meta: "Cybersecurity Services Provider",
+                    desc: "Official website for NCS Group, a cybersecurity firm. Designed to present their comprehensive services including SOC, Penetration Testing, EDR, and SIEM solutions.",
+                    tech: ["ReactJS", "WordPress", "GSAP"],
                     link: "https://ncsgroup.vn/",
                     image: "/assets/projects/ncs_group.png"
                 },
@@ -143,15 +143,15 @@ export const dictionary = {
                     title: "NCA",
                     meta: "Association Portal (Vietnam Cybersecurity Association)",
                     desc: "Web portal for the national cybersecurity association. Built to deliver news, events, and resources securely and efficiently.",
-                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    tech: ["ReactJS", "Ant Design", "Webpack"],
                     link: "https://nca.org.vn/",
                     image: "/assets/projects/nca.png"
                 },
                 {
                     title: "Lam Kinh 189",
-                    meta: "Brand & Corporate Site",
-                    desc: "A stunning corporate website for Lam Kinh 189 to showcase their brand, services, and establish a strong digital presence.",
-                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    meta: "Inspection and Certification Center",
+                    desc: "Official portal for LAMKINH - an Inspection and Certification Center. Built a reliable and professional web interface to provide essential certification information and services.",
+                    tech: ["ReactJS", "Vite", "Ant Design"],
                     link: "https://www.lamkinh189.com/",
                     image: "/assets/projects/lam_kinh_189.png"
                 }
@@ -358,8 +358,8 @@ export const dictionary = {
                 {
                     title: "Gia Dụng Kichin",
                     meta: "Eコマースウェブサイト",
-                    desc: "家電向けのEコマースプラットフォーム。シームレスなブラウジングとチェックアウト体験を備えたオンラインストアを開発しました。",
-                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    desc: "本物の日本の包丁（KAI、Globalなど）や高級キッチン用品を専門とするEコマースプラットフォーム。シームレスなショッピング体験と製品フィルタリングを備えています。",
+                    tech: ["ReactJS", "Next.JS", "Bootstrap"],
                     link: "https://giadungkichin.com/",
                     image: "/assets/projects/gia_dung_kichin.png"
                 },
@@ -367,15 +367,15 @@ export const dictionary = {
                     title: "Tiệm Bút Signature",
                     meta: "ブティックペンストア",
                     desc: "シグネチャーペンブランドのためのエレガントなEコマースストアフロント。高品質のビジュアル、洗練されたデザイン、そしてスムーズなユーザー体験に重点を置いています。",
-                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    tech: ["ReactJS", "Vite", "TailwindCSS"],
                     link: "https://www.tiembutsignature.com/",
                     image: "/assets/projects/tiem_but_signature.png"
                 },
                 {
                     title: "NCS Group",
-                    meta: "企業ウェブサイト",
-                    desc: "NCS Groupの公式ウェブサイト。同社の歴史、サービス、企業アイデンティティをプロフェッショナルかつアクセシブルなレイアウトで設計しました。",
-                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    meta: "サイバーセキュリティサービス企業",
+                    desc: "サイバーセキュリティ企業であるNCS Groupの公式ウェブサイト。SOC、ペネトレーションテスト、EDR、SIEMソリューションなどの包括的なサービスを紹介するように設計されています。",
+                    tech: ["ReactJS", "WordPress", "GSAP"],
                     link: "https://ncsgroup.vn/",
                     image: "/assets/projects/ncs_group.png"
                 },
@@ -383,15 +383,15 @@ export const dictionary = {
                     title: "NCA",
                     meta: "協会ポータル (ベトナムサイバーセキュリティ協会)",
                     desc: "国家サイバーセキュリティ協会のWebポータル。ニュース、イベント、リソースを安全かつ効率的に配信するために構築されました。",
-                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    tech: ["ReactJS", "Ant Design", "Webpack"],
                     link: "https://nca.org.vn/",
                     image: "/assets/projects/nca.png"
                 },
                 {
                     title: "Lam Kinh 189",
-                    meta: "ブランド＆企業サイト",
-                    desc: "Lam Kinh 189のサービスを紹介し、強力なデジタルでの存在感を確立するための魅力的な企業ウェブサイトです。",
-                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    meta: "検査および認証センター",
+                    desc: "検査および認証センターであるLAMKINHの公式ポータル。必須の認証情報とサービスを提供するための信頼性が高く専門的なWebインターフェイスを構築しました。",
+                    tech: ["ReactJS", "Vite", "Ant Design"],
                     link: "https://www.lamkinh189.com/",
                     image: "/assets/projects/lam_kinh_189.png"
                 }
