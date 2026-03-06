@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
 import { fadeIn, textVariant, staggerContainer } from "@/utils/motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ExperienceItem {
     title: string;
@@ -20,56 +21,7 @@ interface EducationItem {
     period: string;
 }
 
-const experiences: ExperienceItem[] = [
-    {
-        title: "Full-Stack Developer",
-        company: "CYAI-NCS",
-        period: "09/2023 - Present",
-        desc: "Full-stack Developer | Cybersecurity Products/Projects",
-        duties: [
-            "Proactively design and develop frontend platforms for enterprise digital transformation projects using ReactJS.",
-            "Developed and maintained frontend modules using ReactJS with Redux.",
-            "Collaborated closely with Back-end and cross-functional teams to clarify requirements.",
-            "Delivered responsive UI experiences through component development.",
-            "Mentored interns and new engineers."
-        ],
-        tech: ["ReactJS", "Redux", "TypeScript"]
-    },
-    {
-        title: "Web Developer",
-        company: "BKAV EDS",
-        period: "09/2022 - 09/2023",
-        desc: "Front-end Developer | Digital Transformation",
-        duties: [
-            "Built frontend platforms for enterprise digital transformation projects using ReactJS.",
-            "Designed and implemented a reusable component system with Styled Components.",
-            "Integrated APIs and handled cross-browser responsive layouts.",
-            "Maintained and optimized existing modules."
-        ],
-        tech: ["ReactJS", "Styled Components"]
-    },
-    {
-        title: "Web Developer",
-        company: "RABILOO",
-        period: "01/2022 - 09/2022",
-        desc: "Web Developer | Outsourcing (Japan & Singapore)",
-        duties: [
-            "Delivered e-commerce outsourcing projects using React.js / Vue.js / Node.js.",
-            "Implemented features like product listing, cart, checkout flow.",
-            "Contributed to both frontend & backend development (Node.js APIs).",
-            "Up-skilled on Next.js, applying SSR/SEO improvements."
-        ],
-        tech: ["React.js", "Vue.js", "Node.js", "Next.js"]
-    }
-];
 
-const education: EducationItem[] = [
-    {
-        school: "Hanoi University of Science and Technology",
-        degree: "Information Technology Engineer",
-        period: "08/2018 - 12/2023"
-    }
-];
 
 const ExperienceCard = ({ experience, index }: { experience: ExperienceItem; index: number }) => {
     const [hovered, setHovered] = useState(false);
@@ -162,13 +114,17 @@ const EducationCard = ({ education, index }: { education: EducationItem; index: 
 }
 
 const Experience = () => {
+    const { t } = useLanguage();
+    const experiences = t("experience.list") as ExperienceItem[];
+    const education = t("experience.education_list") as EducationItem[];
+    
     return (
         <section id="experience" className="py-20 overflow-hidden">
             <div className="container mx-auto px-4">
                 <motion.div variants={textVariant(0.1)} initial="hidden" whileInView="show" viewport={{ once: true }}>
-                    <p className="text-accent text-center text-lg uppercase tracking-wider mb-2">What I haven done so far</p>
+                    <p className="text-accent text-center text-lg uppercase tracking-wider mb-2">{t("experience.subtitle")}</p>
                     <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-16">
-                        Work Experience
+                        {t("experience.title")}
                     </h2>
                 </motion.div>
 
@@ -187,7 +143,7 @@ const Experience = () => {
                 {/* Education Section */}
                 <motion.div variants={textVariant(0.1)} initial="hidden" whileInView="show" viewport={{ once: true }}>
                     <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-10">
-                        Education
+                        {t("experience.education_title")}
                     </h2>
                 </motion.div>
 

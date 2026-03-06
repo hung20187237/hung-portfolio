@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaFolder } from "react-icons/fa";
 import { fadeIn, staggerContainer } from "@/utils/motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface Project {
     title: string;
@@ -15,50 +16,7 @@ interface Project {
     image: string;
 }
 
-const projects: Project[] = [
-    {
-        title: "AMAS",
-        meta: "Malware Analysis Platform",
-        desc: "Malware analysis platform built on MWDB, integrated with Karton to automate static/dynamic analysis. Delivered core workflows for malware sample management, analysis automation flow, and advanced search with Lucene-like queries.",
-        tech: ["MWDB", "Karton", "Redis", "Keycloak"],
-        image: "/assets/projects/amas-platform.png"
-    },
-    {
-        title: "OSINT 1, 2, 3",
-        meta: "Open Source Intelligence Platform",
-        desc: "Platform for collecting, searching, and visualizing open-source intelligence. Developed core frontend for data exploration, interactive dashboards, and advanced search workflows.",
-        tech: ["ReactJS", "Redux-Saga", "Antd"],
-        image: "/assets/projects/osint-dashboard.png"
-    },
-    {
-        title: "SOAR System",
-        meta: "Security Orchestration, Automation and Response",
-        desc: "Cybersecurity platform to monitor incidents and support response workflows. Developed responsive UI components and interactive dashboards to visualize security data.",
-        tech: ["ReactJS", "TypeScript", "Radix UI"],
-        image: "/assets/projects/soar-system.png"
-    },
-    {
-        title: "EDR System",
-        meta: "Endpoint Detection and Response",
-        desc: "Endpoint security monitoring platform upgraded from Wazuh. Enhanced UI components for security data visualization and optimized responsiveness.",
-        tech: ["ReactJS", "Python", "Wazuh"],
-        image: "/assets/projects/edr-dashboard.png"
-    },
-    {
-        title: "Lumina - BI",
-        meta: "Business Intelligence Platform",
-        desc: "Internal BI platform built on Apache Superset. Customized dashboards, chart configurations, and optimized rendering performance.",
-        tech: ["ReactJS", "Flask", "Superset"],
-        image: "/assets/projects/lumina-bi.png"
-    },
-    {
-        title: "CRM System",
-        meta: "Customer Relationship Management",
-        desc: "CRM platform for SMEs. Owned front-end development, implemented lead pipeline, task management, and integrated E-contract workflow.",
-        tech: ["ReactJS", "Redux-Saga", "Antd"],
-        image: "/assets/projects/crm-dashboard.png"
-    }
-];
+
 
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
     return (
@@ -106,6 +64,9 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 };
 
 export default function Projects() {
+    const { t } = useLanguage();
+    const projects = t("projects.list") as Project[];
+    
     return (
         <section id="projects" className="py-20">
             <div className="container mx-auto px-4">
@@ -115,8 +76,8 @@ export default function Projects() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <p className="text-accent font-mono mb-2">My Portfolio</p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-heading-color">Featured Projects</h2>
+                    <p className="text-accent font-mono mb-2">{t("projects.subtitle")}</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-heading-color">{t("projects.title")}</h2>
                 </motion.div>
 
                 <motion.div

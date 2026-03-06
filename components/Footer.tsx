@@ -3,8 +3,10 @@
 import React from "react";
 import { FaGithub, FaLinkedin, FaFacebook, FaArrowUp } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+    const { t } = useLanguage();
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -15,7 +17,7 @@ export default function Footer() {
     const socialLinks = [
         { icon: FaGithub, href: "https://github.com/hung20187237", label: "GitHub" },
         { icon: FaFacebook, href: "https://www.facebook.com/tranduchung308", label: "Facebook" },
-        { icon: FaLinkedin, href: "https://www.linkedin.com/in/tranduchung308/", label: "LinkedIn" },
+        { icon: FaLinkedin, href: "https://www.linkedin.com/in/hung-tran-566a27214/", label: "LinkedIn" },
     ];
 
     return (
@@ -31,24 +33,24 @@ export default function Footer() {
                             HungTran<span className="text-accent">.dev</span>
                         </div>
                         <p className="text-slate-400 text-sm leading-relaxed">
-                            Passionate Full-Stack Developer building modern, resilient, and user-centric web applications.
+                            {t("footer.description")}
                         </p>
                     </div>
 
                     {/* Quick Links */}
                     <div>
-                        <h3 className="text-white font-bold mb-4">Quick Links</h3>
+                        <h3 className="text-white font-bold mb-4">{t("footer.quick_links")}</h3>
                         <ul className="space-y-2 text-slate-400 text-sm">
-                            <li><a href="#about" className="hover:text-accent transition-colors">About Me</a></li>
-                            <li><a href="#services" className="hover:text-accent transition-colors">Services</a></li>
-                            <li><a href="#projects" className="hover:text-accent transition-colors">Projects</a></li>
-                            <li><a href="#contact" className="hover:text-accent transition-colors">Contact</a></li>
+                            <li><a href="#about" className="hover:text-accent transition-colors">{t("nav.about")}</a></li>
+                            <li><a href="#experience" className="hover:text-accent transition-colors">{t("nav.experience")}</a></li>
+                            <li><a href="#projects" className="hover:text-accent transition-colors">{t("nav.projects")}</a></li>
+                            <li><a href="#contact" className="hover:text-accent transition-colors">{t("nav.contact")}</a></li>
                         </ul>
                     </div>
 
                     {/* Socials */}
                     <div>
-                        <h3 className="text-white font-bold mb-4">Socials</h3>
+                        <h3 className="text-white font-bold mb-4">{t("footer.socials")}</h3>
                         <div className="flex justify-center md:justify-start gap-4">
                             {socialLinks.map((link, index) => (
                                 <a
@@ -74,13 +76,13 @@ export default function Footer() {
                             <div className="w-12 h-12 rounded-full border border-slate-700 group-hover:border-accent flex items-center justify-center transition-colors">
                                 <FaArrowUp className="group-hover:-translate-y-1 transition-transform" />
                             </div>
-                            <span className="text-xs font-mono lowercase">Back to Top</span>
+                            <span className="text-xs font-mono lowercase">{t("footer.back_to_top")}</span>
                         </button>
                     </div>
                 </div>
 
                 <div className="border-t border-slate-800 pt-8 text-center text-slate-500 text-sm">
-                    <p>&copy; {new Date().getFullYear()} Tran Duc Hung. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Tran Duc Hung. {t("footer.rights")}</p>
                 </div>
             </div>
         </footer>

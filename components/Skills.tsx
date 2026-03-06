@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "@/utils/motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface Skill {
     name: string;
@@ -91,6 +92,7 @@ const SkillCategoryCard = ({ category, index }: { category: SkillCategory; index
 }
 
 const Skills = () => {
+    const { t } = useLanguage();
     return (
         <section id="skills" className="py-20 relative">
             <div className="container mx-auto px-4">
@@ -100,8 +102,8 @@ const Skills = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <p className="text-accent font-mono mb-2">My Toolbox</p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-heading-color">Skills & Abilities</h2>
+                    <p className="text-accent font-mono mb-2">{t("skills.subtitle")}</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-heading-color">{t("skills.title")}</h2>
                 </motion.div>
 
                 <motion.div

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaCommentDots, FaTimes, FaPaperPlane, FaUser } from "react-icons/fa";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ChatMessage {
     name: string;
@@ -11,6 +12,7 @@ interface ChatMessage {
 }
 
 const NanoChatBot = () => {
+    const { t } = useLanguage();
     const [open, setOpen] = useState(false);
     const [name, setName] = useState("");
     const [message, setMessage] = useState("");
@@ -68,9 +70,9 @@ const NanoChatBot = () => {
                         <div className="bg-secondary p-4 flex items-center justify-between border-b border-slate-700">
                             <h3 className="text-accent font-semibold flex items-center gap-2">
                                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                                Community Chat
+                                {t("chat.title")}
                             </h3>
-                            <span className="text-xs text-slate-400">{comments.length} messages</span>
+                            <span className="text-xs text-slate-400">{comments.length} {t("chat.messages")}</span>
                         </div>
 
                         {/* Chat Area */}
@@ -78,7 +80,7 @@ const NanoChatBot = () => {
                             {comments.length === 0 ? (
                                 <div className="text-center text-slate-500 mt-20">
                                     <p className="mb-2 text-4xl">👋</p>
-                                    <p>Be the first to say hello!</p>
+                                    <p>{t("chat.empty_1")}</p>
                                 </div>
                             ) : (
                                 <div className="space-y-4">
@@ -105,11 +107,11 @@ const NanoChatBot = () => {
                         <div className="p-4 bg-secondary border-t border-slate-700">
                             {!name ? (
                                 <div className="space-y-3">
-                                    <label className="text-xs text-slate-400 block">Enter your name to join the chat</label>
+                                    <label className="text-xs text-slate-400 block">{t("chat.join_label")}</label>
                                     <div className="flex gap-2">
                                         <input
                                             type="text"
-                                            placeholder="Name..."
+                                            placeholder={t("chat.join_placeholder")}
                                             className="flex-1 bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm text-slate-200 outline-none focus:border-accent transition-colors"
                                             onChange={(e) => setName(e.target.value)}
                                             onKeyDown={(e) => e.key === "Enter" && name && localStorage.setItem("nanoChatClientName", name)}
@@ -118,7 +120,7 @@ const NanoChatBot = () => {
                                             onClick={() => name && localStorage.setItem("nanoChatClientName", name)}
                                             className="bg-accent text-primary px-4 py-2 rounded text-sm font-semibold hover:bg-accent/80 transition-colors"
                                         >
-                                            Join
+                                            {t("chat.join_btn")}
                                         </button>
                                     </div>
                                 </div>
@@ -127,7 +129,7 @@ const NanoChatBot = () => {
                                     <input
                                         type="text"
                                         className="flex-1 bg-slate-900 border border-slate-700 rounded px-3 py-2 text-sm text-slate-200 outline-none focus:border-accent transition-colors"
-                                        placeholder="Type a message..."
+                                        placeholder={t("chat.type_placeholder")}
                                         value={message}
                                         onChange={(e) => setMessage(e.target.value)}
                                         onKeyDown={(e) => e.key === "Enter" && sendMessage()}

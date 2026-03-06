@@ -12,6 +12,7 @@ import {
     SiTailwindcss, SiRuby, SiJavascript, SiTypescript, SiC, SiCplusplus, SiExpress
 } from 'react-icons/si';
 import { fadeIn, staggerContainer } from "@/utils/motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 // Memoized Icon Component with Color-Shift
 const Icon = memo(({ icon: IconComp, title, color }: any) => (
@@ -39,6 +40,7 @@ const Icon = memo(({ icon: IconComp, title, color }: any) => (
 Icon.displayName = "Icon";
 
 const Hero = () => {
+    const { t } = useLanguage();
     const [isMobile, setIsMobile] = useState(false);
     const [particles, setParticles] = useState<{ top: string; left: string; size: string; delay: number }[]>([]);
 
@@ -112,16 +114,16 @@ const Hero = () => {
             >
                 {/* Left Content */}
                 <motion.div variants={fadeIn('right', 'tween', 0.2, 1)} className="hero-content space-y-6">
-                    <p className="text-accent font-mono text-lg">Hi, my name is</p>
+                    <p className="text-accent font-mono text-lg">{t("hero.greeting")}</p>
                     <h1 className="text-5xl md:text-7xl font-bold text-slate-200 tracking-tight">
-                        Trần Đức Hùng.
+                        {t("hero.name")}
                     </h1>
                     <h2 className="text-3xl md:text-5xl font-bold text-slate-400">
                         <TypeAnimation
                             sequence={[
-                                "I build things for the web.", 1000,
-                                "I build accessible products.", 1000,
-                                "I focus on React & Node.js.", 1000,
+                                t("hero.roles.0"), 1000,
+                                t("hero.roles.1"), 1000,
+                                t("hero.roles.2"), 1000,
                             ]}
                             wrapper="span"
                             speed={50}
@@ -130,18 +132,18 @@ const Hero = () => {
                         />
                     </h2>
                     <p className="max-w-xl text-slate-400 text-lg leading-relaxed">
-                        I am a software engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I am focused on building accessible, human-centered products at <span className="text-accent">CYAI-NCS</span>.
+                        {t("hero.description")}<span className="text-accent">{t("hero.company")}</span>.
                     </p>
 
                     <div className="flex gap-4 pt-4">
                         <a href="#projects" className="px-6 py-3 border border-accent text-accent rounded hover:bg-accent/10 transition-colors font-mono">
-                            Check out my work!
+                            {t("hero.cta")}
                         </a>
                         <div className="flex gap-6 items-center ml-4">
-                            <a href="https://github.com/hungtran" target="_blank" rel="noreferrer" className="text-2xl text-slate-400 hover:text-accent transition-colors hover:-translate-y-1 transform duration-300">
+                            <a href="https://github.com/hung20187237" target="_blank" rel="noreferrer" className="text-2xl text-slate-400 hover:text-accent transition-colors hover:-translate-y-1 transform duration-300">
                                 <FaGithub />
                             </a>
-                            <a href="https://linkedin.com/in/hungtran" target="_blank" rel="noreferrer" className="text-2xl text-slate-400 hover:text-accent transition-colors hover:-translate-y-1 transform duration-300">
+                            <a href="https://www.linkedin.com/in/hung-tran-566a27214/" target="_blank" rel="noreferrer" className="text-2xl text-slate-400 hover:text-accent transition-colors hover:-translate-y-1 transform duration-300">
                                 <FaLinkedin />
                             </a>
                             <a href="https://twitter.com/hungtran" target="_blank" rel="noreferrer" className="text-2xl text-slate-400 hover:text-accent transition-colors hover:-translate-y-1 transform duration-300">
@@ -158,10 +160,11 @@ const Hero = () => {
                         animate={{ y: [0, -15, 0] }}
                         transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
                     >
-                        {/* Placeholder for now / replace with actual image */}
-                        <div className="w-full h-full flex items-center justify-center bg-slate-800 text-6xl text-slate-600 font-bold">
-                            Hi!
-                        </div>
+                        <img 
+                            src="/assets/profile.png" 
+                            alt="Profile" 
+                            className="w-full h-full object-cover"
+                        />
                         {/* Glow Effect Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
                     </motion.div>

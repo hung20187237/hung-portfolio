@@ -4,8 +4,10 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaPaperPlane, FaUser, FaEnvelope, FaPen } from "react-icons/fa";
 import { fadeIn, slideIn } from "@/utils/motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Contact() {
+    const { t } = useLanguage();
     const [form, setForm] = useState({
         name: "",
         email: "",
@@ -66,8 +68,8 @@ export default function Contact() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <p className="text-accent font-mono mb-2">Get in touch</p>
-                    <h2 className="text-4xl md:text-5xl font-bold text-heading-color">Contact Me</h2>
+                    <p className="text-accent font-mono mb-2">{t("contact.subtitle")}</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-heading-color">{t("contact.title")}</h2>
                 </motion.div>
 
                 <div className="flex flex-col lg:flex-row gap-10 items-start justify-center max-w-5xl mx-auto">
@@ -80,10 +82,9 @@ export default function Contact() {
                         viewport={{ once: true }}
                         className="flex-[0.5] glass p-8 rounded-2xl w-full"
                     >
-                        <h3 className="text-2xl font-bold text-white mb-6">Let's connect!</h3>
+                        <h3 className="text-2xl font-bold text-white mb-6">{t("contact.say_hello")}</h3>
                         <p className="text-slate-400 mb-8 leading-relaxed">
-                            I'm currently looking for new opportunities, my inbox is always open.
-                            Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                            {t("contact.description")}
                         </p>
 
                         <div className="space-y-6">
@@ -104,7 +105,7 @@ export default function Contact() {
                                 </div>
                                 <div>
                                     <p className="text-sm text-slate-500 font-bold">Phone</p>
-                                    <p className="text-slate-300">0917700068</p>
+                                    <p className="text-slate-300">+84 917 700 068</p>
                                 </div>
                             </div>
                         </div>
@@ -121,42 +122,39 @@ export default function Contact() {
                         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                             <label className="flex flex-col">
                                 <span className="text-white font-medium mb-2 flex items-center gap-2">
-                                    <FaUser className="text-accent" /> Your Name
+                                    <FaUser className="text-accent" /> {t("contact.form.name")}
                                 </span>
                                 <input
                                     type="text"
                                     name="name"
                                     value={form.name}
                                     onChange={handleChange}
-                                    placeholder="What's your name?"
                                     className="bg-slate-800 py-4 px-6 placeholder:text-slate-500 text-white rounded-lg outline-none border border-slate-700 focus:border-accent font-medium transition-colors"
                                     required
                                 />
                             </label>
                             <label className="flex flex-col">
                                 <span className="text-white font-medium mb-2 flex items-center gap-2">
-                                    <FaEnvelope className="text-accent" /> Your Email
+                                    <FaEnvelope className="text-accent" /> {t("contact.form.email")}
                                 </span>
                                 <input
                                     type="email"
                                     name="email"
                                     value={form.email}
                                     onChange={handleChange}
-                                    placeholder="What's your email?"
                                     className="bg-slate-800 py-4 px-6 placeholder:text-slate-500 text-white rounded-lg outline-none border border-slate-700 focus:border-accent font-medium transition-colors"
                                     required
                                 />
                             </label>
                             <label className="flex flex-col">
                                 <span className="text-white font-medium mb-2 flex items-center gap-2">
-                                    <FaPen className="text-accent" /> Your Message
+                                    <FaPen className="text-accent" /> {t("contact.form.message")}
                                 </span>
                                 <textarea
                                     rows={5}
                                     name="message"
                                     value={form.message}
                                     onChange={handleChange}
-                                    placeholder="What do you want to say?"
                                     className="bg-slate-800 py-4 px-6 placeholder:text-slate-500 text-white rounded-lg outline-none border border-slate-700 focus:border-accent font-medium transition-colors resize-none"
                                     required
                                 />
@@ -166,7 +164,7 @@ export default function Contact() {
                                 type="submit"
                                 className="bg-accent text-white py-3 px-8 outline-none w-fit font-bold shadow-md shadow-primary rounded-xl hover:bg-opacity-90 transition-all flex items-center gap-2"
                             >
-                                {loading ? "Sending..." : "Send Message"}
+                                {loading ? t("contact.form.sending") : t("contact.form.send")}
                                 {!loading && <FaPaperPlane />}
                             </button>
 

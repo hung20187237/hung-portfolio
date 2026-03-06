@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaGlobe } from "react-icons/fa";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
     const [theme, setTheme] = useState("dark");
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { language, setLanguage, t } = useLanguage();
 
     useEffect(() => {
         // Check local storage or system preference
@@ -30,6 +32,10 @@ export default function Navbar() {
         document.body.style.overflow = !isMobileMenuOpen ? "hidden" : "auto";
     };
 
+    const toggleLanguage = () => {
+        setLanguage(language === 'en' ? 'ja' : 'en');
+    };
+
     return (
         <header>
             <div className="container">
@@ -40,14 +46,24 @@ export default function Navbar() {
 
                     {/* Desktop Nav */}
                     <ul className="nav-links">
-                        <li><Link href="#about">About</Link></li>
-                        <li><Link href="#experience">Experience</Link></li>
-                        <li><Link href="#projects">Projects</Link></li>
-                        <li><Link href="#skills">Skills</Link></li>
-                        <li><Link href="#contact">Contact</Link></li>
+                        <li><Link href="#about">{t("nav.about")}</Link></li>
+                        <li><Link href="#experience">{t("nav.experience")}</Link></li>
+                        <li><Link href="#projects">{t("nav.projects")}</Link></li>
+                        <li><Link href="#skills">{t("nav.skills")}</Link></li>
+                        <li><Link href="#contact">{t("nav.contact")}</Link></li>
                     </ul>
 
-                    <div className="nav-controls">
+                    <div className="nav-controls flex items-center gap-4">
+                        {/* Language Switcher */}
+                        <button 
+                            onClick={toggleLanguage}
+                            className="flex items-center gap-2 text-slate-300 hover:text-accent transition-colors text-sm font-semibold"
+                            aria-label="Toggle Language"
+                        >
+                            <FaGlobe />
+                            <span>{language.toUpperCase()}</span>
+                        </button>
+
                         <div className="theme-switch-wrapper">
                             <label className="theme-switch" htmlFor="checkbox">
                                 <input
@@ -70,11 +86,11 @@ export default function Navbar() {
                     {/* Mobile Nav Overlay */}
                     <div className={`mobile-nav ${isMobileMenuOpen ? "active" : ""}`}>
                         <ul className="mobile-nav-links">
-                            <li><Link href="#about" onClick={toggleMobileMenu}>About</Link></li>
-                            <li><Link href="#experience" onClick={toggleMobileMenu}>Experience</Link></li>
-                            <li><Link href="#projects" onClick={toggleMobileMenu}>Projects</Link></li>
-                            <li><Link href="#skills" onClick={toggleMobileMenu}>Skills</Link></li>
-                            <li><Link href="#contact" onClick={toggleMobileMenu}>Contact</Link></li>
+                            <li><Link href="#about" onClick={toggleMobileMenu}>{t("nav.about")}</Link></li>
+                            <li><Link href="#experience" onClick={toggleMobileMenu}>{t("nav.experience")}</Link></li>
+                            <li><Link href="#projects" onClick={toggleMobileMenu}>{t("nav.projects")}</Link></li>
+                            <li><Link href="#skills" onClick={toggleMobileMenu}>{t("nav.skills")}</Link></li>
+                            <li><Link href="#contact" onClick={toggleMobileMenu}>{t("nav.contact")}</Link></li>
                         </ul>
                     </div>
                 </nav>
