@@ -109,9 +109,53 @@ export const dictionary = {
         projects: {
             title: "Some Things I've Built",
             subtitle: "My Work",
+            freelance_title: "Freelance Work",
+            freelance_subtitle: "Freelance Projects",
             github: "GitHub",
             demo: "Live Demo",
             learn_more: "Learn More",
+            freelance_list: [
+                {
+                    title: "Gia Dụng Kichin",
+                    meta: "E-Commerce Website",
+                    desc: "An e-commerce platform for home appliances. Developed a robust online store with a seamless browsing and checkout experience.",
+                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    link: "https://giadungkichin.com/",
+                    image: "/assets/projects/gia_dung_kichin.png"
+                },
+                {
+                    title: "Tiệm Bút Signature",
+                    meta: "Boutique Pen Store",
+                    desc: "Elegant e-commerce storefront for a signature pen brand. Focused on high-quality visuals, responsive design, and smooth user journey.",
+                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    link: "https://www.tiembutsignature.com/",
+                    image: "/assets/projects/tiem_but_signature.png"
+                },
+                {
+                    title: "NCS Group",
+                    meta: "Corporate Website",
+                    desc: "Official website for NCS Group. Designed a professional and accessible layout presenting their history, services, and corporate identity.",
+                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    link: "https://ncsgroup.vn/",
+                    image: "/assets/projects/ncs_group.png"
+                },
+                {
+                    title: "NCA",
+                    meta: "Association Portal (Vietnam Cybersecurity Association)",
+                    desc: "Web portal for the national cybersecurity association. Built to deliver news, events, and resources securely and efficiently.",
+                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    link: "https://nca.org.vn/",
+                    image: "/assets/projects/nca.png"
+                },
+                {
+                    title: "Lam Kinh 189",
+                    meta: "Brand & Corporate Site",
+                    desc: "A stunning corporate website for Lam Kinh 189 to showcase their brand, services, and establish a strong digital presence.",
+                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    link: "https://www.lamkinh189.com/",
+                    image: "/assets/projects/lam_kinh_189.png"
+                }
+            ],
             list: [
                 {
                     title: "AMAS",
@@ -305,9 +349,53 @@ export const dictionary = {
         projects: {
             title: "構築したもの",
             subtitle: "私の作品",
+            freelance_title: "フリーランスの仕事",
+            freelance_subtitle: "その他のプロジェクト",
             github: "GitHub",
             demo: "ライブデモ",
             learn_more: "詳細を見る",
+            freelance_list: [
+                {
+                    title: "Gia Dụng Kichin",
+                    meta: "Eコマースウェブサイト",
+                    desc: "家電向けのEコマースプラットフォーム。シームレスなブラウジングとチェックアウト体験を備えたオンラインストアを開発しました。",
+                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    link: "https://giadungkichin.com/",
+                    image: "/assets/projects/gia_dung_kichin.png"
+                },
+                {
+                    title: "Tiệm Bút Signature",
+                    meta: "ブティックペンストア",
+                    desc: "シグネチャーペンブランドのためのエレガントなEコマースストアフロント。高品質のビジュアル、洗練されたデザイン、そしてスムーズなユーザー体験に重点を置いています。",
+                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    link: "https://www.tiembutsignature.com/",
+                    image: "/assets/projects/tiem_but_signature.png"
+                },
+                {
+                    title: "NCS Group",
+                    meta: "企業ウェブサイト",
+                    desc: "NCS Groupの公式ウェブサイト。同社の歴史、サービス、企業アイデンティティをプロフェッショナルかつアクセシブルなレイアウトで設計しました。",
+                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    link: "https://ncsgroup.vn/",
+                    image: "/assets/projects/ncs_group.png"
+                },
+                {
+                    title: "NCA",
+                    meta: "協会ポータル (ベトナムサイバーセキュリティ協会)",
+                    desc: "国家サイバーセキュリティ協会のWebポータル。ニュース、イベント、リソースを安全かつ効率的に配信するために構築されました。",
+                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    link: "https://nca.org.vn/",
+                    image: "/assets/projects/nca.png"
+                },
+                {
+                    title: "Lam Kinh 189",
+                    meta: "ブランド＆企業サイト",
+                    desc: "Lam Kinh 189のサービスを紹介し、強力なデジタルでの存在感を確立するための魅力的な企業ウェブサイトです。",
+                    tech: ["ReactJS", "Next.js", "TailwindCSS"],
+                    link: "https://www.lamkinh189.com/",
+                    image: "/assets/projects/lam_kinh_189.png"
+                }
+            ],
             list: [
                 {
                     title: "AMAS",

@@ -42,8 +42,12 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                         <p className="text-xs text-slate-500 font-mono mt-1">{project.meta}</p>
                     </div>
                     <div className="flex gap-3">
-                        <a href="#" className="text-slate-400 hover:text-accent text-lg"><FaGithub /></a>
-                        <a href="#" className="text-slate-400 hover:text-accent text-lg"><FaExternalLinkAlt /></a>
+                        {project.github && (
+                            <a href={project.github} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-accent text-lg"><FaGithub /></a>
+                        )}
+                        {project.link && (
+                            <a href={project.link} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-accent text-lg"><FaExternalLinkAlt /></a>
+                        )}
                     </div>
                 </div>
 
@@ -66,10 +70,12 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 export default function Projects() {
     const { t } = useLanguage();
     const projects = t("projects.list") as Project[];
+    const freelanceProjects = t("projects.freelance_list") as Project[];
     
     return (
         <section id="projects" className="py-20">
-            <div className="container mx-auto px-4">
+            {/* Main Projects Section */}
+            <div className="container mx-auto px-4 mb-32">
                 <motion.div
                     initial="hidden"
                     whileInView="show"
@@ -88,6 +94,31 @@ export default function Projects() {
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                 >
                     {projects.map((project, index) => (
+                        <ProjectCard key={index} project={project} index={index} />
+                    ))}
+                </motion.div>
+            </div>
+
+            {/* Freelance Projects Section */}
+            <div className="container mx-auto px-4">
+                <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    className="text-center mb-16"
+                >
+                    <p className="text-accent font-mono mb-2">{t("projects.freelance_subtitle")}</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-heading-color">{t("projects.freelance_title")}</h2>
+                </motion.div>
+
+                <motion.div
+                    variants={staggerContainer(0.1, 0.1)}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.1 }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    {freelanceProjects.map((project, index) => (
                         <ProjectCard key={index} project={project} index={index} />
                     ))}
                 </motion.div>
